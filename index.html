@@ -67,7 +67,35 @@ footer{text-align:center;color:#64748b;padding:35px}
 <footer>TeacherAgent AI | Prototype Version 1.0</footer>
 <script>
 function comingSoon(){
-alert("This agent will be activated in a future step!");
+  const subject = prompt("Enter your subject (e.g. Malay Language):");
+  if (subject === null) return;
+  if (!subject.trim()) {
+    alert("Please enter a subject.");
+    return;
+  }
+
+  const level = prompt("Enter the level (e.g. Secondary 2 G3):");
+  if (level === null) return;
+
+  const topic = prompt("Enter the lesson topic:");
+  if (topic === null) return;
+
+  const duration = prompt("Enter lesson duration in minutes:", "60");
+  if (duration === null) return;
+
+  if (!level.trim() || !topic.trim() || !duration.trim()) {
+    alert("Please complete all fields.");
+    return;
+  }
+
+  alert(
+    "LESSON PLANNING REQUEST\n\n" +
+    "Subject: " + subject + "\n" +
+    "Level: " + level + "\n" +
+    "Topic: " + topic + "\n" +
+    "Duration: " + duration + " minutes\n\n" +
+    "Your lesson requirements have been captured. AI generation will be added later."
+  );
 }
 </script>
 </body>
