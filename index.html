@@ -1,102 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TeacherAgent AI</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#17263d}
-header{background:#172d50;color:white;padding:35px 20px;text-align:center}
-header h1{margin:0 0 10px}
-header p{margin:0;color:#d9e6f5}
-main{max-width:1100px;margin:35px auto;padding:0 20px}
-h2{margin-bottom:8px}
-.subtitle{color:#64748b;margin-bottom:25px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.card{background:white;padding:25px;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 3px 10px #172d5010}
-.emoji{font-size:32px}
-.card h3{margin-bottom:8px}
-.card p{color:#64748b;line-height:1.5;min-height:65px}
-button{background:#225bc4;color:white;border:0;padding:11px 18px;border-radius:8px;font-weight:bold;cursor:pointer}
-button:hover{background:#174597}
-footer{text-align:center;color:#64748b;padding:35px}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#17263d}header{background:#172d50;color:white;padding:32px 20px;text-align:center}header h1{margin:0 0 10px}header p{margin:0;color:#d9e6f5}main{max-width:1050px;margin:36px auto;padding:0 20px}h2{margin-bottom:8px}.subtitle{color:#64748b;margin-bottom:25px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}.card,.workspace{background:white;padding:25px;border-radius:14px;border:1px solid #e2e8f0;box-shadow:0 3px 10px #172d5010}.emoji{font-size:32px}.card h3{margin-bottom:8px}.card p{color:#64748b;line-height:1.5;min-height:65px}button{background:#225bc4;color:white;border:0;padding:11px 18px;border-radius:8px;font-weight:bold;cursor:pointer}button:hover{background:#174597}button.secondary{background:#e8eef9;color:#172d50}button.secondary:hover{background:#d9e5f6}footer{text-align:center;color:#64748b;padding:35px}.hidden{display:none}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.field{margin-bottom:18px}label{display:block;font-weight:600;margin-bottom:7px}input,select,textarea{width:100%;font:inherit;padding:11px;border:1px solid #cbd5e1;border-radius:8px;background:white}textarea{min-height:110px;resize:vertical}.actions{display:flex;flex-wrap:wrap;gap:10px}.output{background:#f1f5fb;border:1px solid #d8e4f4;padding:20px;border-radius:12px;margin-top:20px}.output pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.6}.note{color:#64748b;font-size:14px;line-height:1.5}
 </style>
 </head>
 <body>
-<header>
-<h1>TeacherAgent AI</h1>
-<p>Your AI-powered teaching workspace</p>
-</header>
+<header><h1>TeacherAgent AI</h1><p>Your AI-powered teaching workspace</p></header>
 <main>
-<h2>Welcome, Teacher!</h2>
-<p class="subtitle">Choose an AI agent to support your teaching workflow.</p>
-<div class="grid">
-<div class="card">
-<div class="emoji">📚</div>
-<h3>Lesson Planning Agent</h3>
-<p>Design structured lessons and differentiated learning activities.</p>
-<button onclick="comingSoon()">Launch Agent</button>
-</div>
-<div class="card">
-<div class="emoji">📝</div>
-<h3>Assessment Agent</h3>
-<p>Generate questions, worksheets, rubrics and assessments.</p>
-<button onclick="comingSoon()">Launch Agent</button>
-</div>
-<div class="card">
-<div class="emoji">💬</div>
-<h3>Feedback Agent</h3>
-<p>Develop constructive feedback based on assessment criteria.</p>
-<button onclick="comingSoon()">Launch Agent</button>
-</div>
-<div class="card">
-<div class="emoji">🎯</div>
-<h3>Curriculum Agent</h3>
-<p>Align teaching resources with curriculum learning outcomes.</p>
-<button onclick="comingSoon()">Launch Agent</button>
-</div>
-<div class="card">
-<div class="emoji">🔍</div>
-<h3>Quality Review Agent</h3>
-<p>Review teaching materials for clarity, quality and alignment.</p>
-<button onclick="comingSoon()">Launch Agent</button>
-</div>
-</div>
-</main>
-<footer>TeacherAgent AI | Prototype Version 1.0</footer>
+<section id="dashboard"><h2>Welcome, Teacher!</h2><p class="subtitle">Choose an AI agent to support your teaching workflow.</p><div class="grid">
+<div class="card"><div class="emoji">📚</div><h3>Lesson Planning Agent</h3><p>Design structured lessons and differentiated learning activities.</p><button type="button" id="launchLesson">Launch Agent</button></div>
+<div class="card"><div class="emoji">📝</div><h3>Assessment Agent</h3><p>Generate questions, worksheets, rubrics and assessments.</p><button type="button" class="placeholder">Launch Agent</button></div>
+<div class="card"><div class="emoji">💬</div><h3>Feedback Agent</h3><p>Develop constructive feedback based on assessment criteria.</p><button type="button" class="placeholder">Launch Agent</button></div>
+<div class="card"><div class="emoji">🎯</div><h3>Curriculum Agent</h3><p>Align teaching resources with curriculum learning outcomes.</p><button type="button" class="placeholder">Launch Agent</button></div>
+<div class="card"><div class="emoji">🔍</div><h3>Quality Review Agent</h3><p>Review teaching materials for clarity, quality and alignment.</p><button type="button" class="placeholder">Launch Agent</button></div>
+</div></section>
+<section id="lessonWorkspace" class="hidden"><button type="button" class="secondary" id="backButton">← Back to Dashboard</button><h2>📚 Lesson Planning Agent</h2><p class="subtitle">Describe your lesson. The workspace will prepare a structured request you can review and copy.</p>
+<div class="workspace"><form id="lessonForm"><div class="form-grid">
+<div class="field"><label for="subject">Subject</label><select id="subject"><option>Malay Language</option><option>English Language</option><option>Mathematics</option><option>Science</option><option>Humanities</option><option>Other</option></select></div>
+<div class="field"><label for="level">Level</label><select id="level"><option>Secondary 1 G1</option><option>Secondary 1 G2</option><option>Secondary 1 G3</option><option>Secondary 2 G1</option><option>Secondary 2 G2</option><option selected>Secondary 2 G3</option><option>Secondary 3 G1</option><option>Secondary 3 G2</option><option>Secondary 3 G3</option><option>Secondary 4 G1</option><option>Secondary 4 G2</option><option>Secondary 4 G3</option><option>Secondary 5</option><option>Other</option></select></div>
+<div class="field"><label for="duration">Duration (minutes)</label><input id="duration" type="number" min="1" max="300" value="60" required></div>
+<div class="field"><label for="topic">Lesson topic</label><input id="topic" placeholder="e.g. Makanan Lakuran" required></div>
+</div><div class="field"><label for="objectives">Learning objectives</label><textarea id="objectives" placeholder="What should students know or be able to do?" required></textarea></div><div class="field"><label for="instructions">Additional instructions (optional)</label><textarea id="instructions" placeholder="e.g. Include differentiated activities, formative assessment, and a 5-minute exit ticket."></textarea></div>
+<button type="submit">Generate Request</button></form><div id="result" class="output hidden" aria-live="polite"><h3>Lesson-planning request</h3><pre id="requestText"></pre><div class="actions"><button type="button" id="copyButton">Copy Request</button></div><p class="note">This creates a structured prompt, not an AI-generated lesson. Do not include confidential student information.</p></div></div></section>
+</main><footer>TeacherAgent AI | Prototype Version 1.1</footer>
 <script>
-function comingSoon(){
-  const subject = prompt("Enter your subject (e.g. Malay Language):");
-  if (subject === null) return;
-  if (!subject.trim()) {
-    alert("Please enter a subject.");
-    return;
-  }
-
-  const level = prompt("Enter the level (e.g. Secondary 2 G3):");
-  if (level === null) return;
-
-  const topic = prompt("Enter the lesson topic:");
-  if (topic === null) return;
-
-  const duration = prompt("Enter lesson duration in minutes:", "60");
-  if (duration === null) return;
-
-  if (!level.trim() || !topic.trim() || !duration.trim()) {
-    alert("Please complete all fields.");
-    return;
-  }
-
-  alert(
-    "LESSON PLANNING REQUEST\n\n" +
-    "Subject: " + subject + "\n" +
-    "Level: " + level + "\n" +
-    "Topic: " + topic + "\n" +
-    "Duration: " + duration + " minutes\n\n" +
-    "Your lesson requirements have been captured. AI generation will be added later."
-  );
-}
+const dashboard=document.getElementById('dashboard');
+const workspace=document.getElementById('lessonWorkspace');
+document.getElementById('launchLesson').addEventListener('click',()=>{dashboard.classList.add('hidden');workspace.classList.remove('hidden');window.scrollTo(0,0)});
+document.getElementById('backButton').addEventListener('click',()=>{workspace.classList.add('hidden');dashboard.classList.remove('hidden');window.scrollTo(0,0)});
+document.querySelectorAll('.placeholder').forEach(button=>button.addEventListener('click',()=>alert('This agent will be developed in a future step!')));
+let request='';
+document.getElementById('lessonForm').addEventListener('submit',event=>{
+ event.preventDefault();
+ const value=id=>document.getElementById(id).value.trim();
+ request=`You are a teaching and learning specialist. Prepare a detailed lesson plan using the following requirements. Do not invent curriculum standards; ask for the relevant syllabus if needed.\n\nSubject: ${value('subject')}\nLevel: ${value('level')}\nTopic: ${value('topic')}\nDuration: ${value('duration')} minutes\nLearning objectives: ${value('objectives')}\nAdditional instructions: ${value('instructions')||'None'}\n\nInclude: (1) learning objectives, (2) lesson stages with timings totalling the requested duration, (3) teaching and learning activities, (4) differentiation, (5) formative assessment, and (6) materials required. Clearly mark assumptions for teacher verification.`;
+ document.getElementById('requestText').textContent=request;
+ document.getElementById('result').classList.remove('hidden');
+});
+document.getElementById('copyButton').addEventListener('click',async()=>{
+ try{await navigator.clipboard.writeText(request);alert('Request copied!')}catch(error){alert('Copy unavailable. Please select and copy the request text manually.')}
+});
 </script>
 </body>
 </html>
